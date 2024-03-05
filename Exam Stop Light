@@ -1,0 +1,34 @@
+const int LED1Duration = 5000;
+const int LED2Duration = 2000;
+const int LED3Duration= 5000;
+
+void setup() {
+  pinMode(LED1Pin, OUTPUT);
+  pinMode(LED2Pin, OUTPUT);
+  pinMode(LED3Pin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
+}
+
+void loop() {
+  if (digitalRead(buttonPin) == LOW) {
+    digitalWrite(LED1Pin, LOW);
+    digitalWrite(LED2Pin, LOW);
+    digitalWrite(LED3Pin, HIGH);
+    while (digitalRead(buttonPin) == LOW) {
+    }
+    digitalWrite(LED1Pin, HIGH);
+    digitalWrite(LED2Pin, LOW);
+    digitalWrite(LED3Pin, LOW);
+    delay(LED1Duration);
+  } else {
+    digitalWrite(LED1Pin, LOW);
+    digitalWrite(LED2Pin, HIGH);
+    digitalWrite(LED3Pin, LOW);
+    delay(LED2Duration);
+    
+    digitalWrite(LED1Pin, LOW);
+    digitalWrite(LED2Pin, LOW);
+    digitalWrite(LED3Pin, HIGH);
+    delay(LED3Duration);
+  }
+}
